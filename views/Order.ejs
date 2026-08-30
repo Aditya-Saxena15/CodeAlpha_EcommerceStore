@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce-Order</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <h1>My Order</h1>
+
+    <h2>Products</h2>
+
+    <% for (let item of order.items) { %>
+
+        <p>
+            Product:
+            <%= item.product.title %>
+        </p>
+
+        <p>
+            Price: ₹<%= item.price %>
+        </p>
+
+        <p>
+            Quantity: <%= item.quantity %>
+        </p>
+
+        <p>
+            Subtotal: ₹<%= item.price * item.quantity %>
+        </p>
+
+        <hr>
+
+    <% } %>
+
+    <h2>
+        Total: ₹<%= order.totalAmount %>
+    </h2>
+
+    <h3>Delivery Address</h3>
+
+    <p>Name: <%= order.address.FullName %></p>
+    <p>Phone: <%= order.address.Phone %></p>
+    <p>Street: <%= order.address.Street %></p>
+    <p>City: <%= order.address.City %></p>
+    <p>State: <%= order.address.State %></p>
+    <p>PIN Code: <%= order.address.PINcode %></p>
+
+    <h3>
+        Status: <%= order.status %>
+    </h3>
+
+    <p>
+        Order Date: <%= order.createdAt.toLocaleString() %>
+    </p>
+
+    <br>
+
+    <a href="/product">Continue Shopping</a>
+
+    <br><br>
+
+    <a href="/profile">Profile</a>
+
+</body>
+
+</html>
