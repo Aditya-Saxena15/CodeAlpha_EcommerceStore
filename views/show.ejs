@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Product</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <h1>Your Product</h1>
+
+    <p>
+        <%= product.title %>
+    </p>
+    <br>
+    <p>
+        <%= product.description %>
+    </p>
+    <br>
+    <p>
+        &#8377;<%= product.price %>
+    </p>
+    <br>
+    <p>
+        <%= product.stock %>
+    </p>
+
+    <form method="POST" action="/cart/add/<%= product._id %>">
+        <button type="submit">Add to Cart</button>
+    </form>
+
+    <br>
+
+    <a href="/product">Continue Shopping</a>
+    <a href="/cart">Cart</a>
+</body>
+
+</html>
