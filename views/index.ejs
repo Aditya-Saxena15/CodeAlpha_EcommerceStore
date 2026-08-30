@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Product</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <h3>Ecommerce Product</h3>
+    <a href="/cart">Cart</a>
+    <br>
+    <a href="/profile">Profile</a>
+    <br>
+    <a href="/logout">Logout</a>
+    <ul>
+        <% for(let product of Products){ %>
+
+            <li>
+                <%= product.title %>
+            </li>
+
+            <li>
+                <%= product.description %>
+            </li>
+
+            <li>
+                &#8377;<%= product.price.toLocaleString("en-IN") %>
+            </li>
+
+            <li>
+                <%= product.image %>
+            </li>
+
+            <li>
+                <%= product.stock %>
+            </li>
+
+            <li>
+                <a href="/product/<%= product._id %>">View Details</a>
+            </li>
+
+            <hr>
+
+            <% } %>
+    </ul>
+</body>
+
+</html>
