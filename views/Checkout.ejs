@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Checkout</title>
+</head>
+
+<body>
+    <h1>Checkout Here</h1>
+
+    <form method="post" action="/checkout">
+        <label>fullName:</label>
+        <input type="text" name="fullName" placeholder="Enter Your Full name" required>
+        <br><br>
+
+        <label>phone:</label>
+        <input type="tel" name="phone" placeholder="Enter Your Phone Number" required>
+        <br><br>
+
+        <label>address:</label>
+        <input type="text" name="address"  placeholder="Enter Your Address" required>
+        <br><br>
+
+        <label>city:</label>
+        <input type="text" name="city"  placeholder="Enter Your City" required>
+        <br><br>
+
+        <label>state</label>
+        <input type="text" name="state" placeholder="Enter Your State" required>
+        <br><br>
+
+        <label>pincode:</label>
+        <input type="text" name="pinCode" placeholder="Enter Your Pincode" required>
+        <br><br>
+
+        <button type="submit">Place Order</button>
+    </form>
+
+</body>
+
+</html>
