@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Users</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <h1>Manage Users</h1>
+
+    <% if (users.length === 0) { %>
+
+        <p>No users found.</p>
+
+    <% } else { %>
+
+        <% for (let user of users) { %>
+
+            <hr>
+
+            <h3><%= user.Username %></h3>
+
+            <p>Email: <%= user.email %></p>
+
+            <p>Role: <%= user.role %></p>
+
+        <% } %>
+
+    <% } %>
+
+    <br>
+
+    <a href="/admin">Back to Admin Dashboard</a>
+
+</body>
+
+</html>
