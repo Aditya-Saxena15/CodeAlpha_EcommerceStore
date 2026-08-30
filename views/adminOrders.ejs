@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin - Orders</title>
+    <link rel="stylesheet" href="/style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        select {
+            padding: 6px;
+        }
+
+        button {
+            padding: 6px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Admin - Orders</h1>
+
+    <a href="/admin">← Back to Admin Dashboard</a>
+
+    <br><br>
+
+    <% if (orders.length === 0) { %>
+
+        <h3>No orders found</h3>
+
+    <% } else { %>
+
+        <table>
+
+            <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Products</th>
+                <th>Total Amount</th>
+                <th>Address</th>
+                <th>Status</th>
+                <th>Update</th>
+            </tr>
+
+            <% orders.forEach(order => { %>
+
+                <tr>
+
+                    <td>
+                        <%= order._id %>
+                    </td>
+
+                    <td>
+                        <%= order.user.Username %>
+                        <br>
+                        <%= order.user.email %>
+                    </td>
+
+                    <td>
+
+                        <% order.items.forEach(item => { %>
+
+                            <div>
+                                <%= item.product.title %>
+                                <br><br>
+                                <%= item.quantity %>
+                            </div>
+
+                        <% }) %>
+
+                    </td>
+
+                    <td>
+                        ₹<%= order.totalAmount %>
+                    </td>
+
+                    <td>
+                        <%= order.address.FullName %><br>
+                        <%= order.address.Phone %><br>
+                        <%= order.address.Street %><br>
+                        <%= order.address.City %>,
+                        <%= order.address.State %><br>
+                        <%= order.address.PINcode %>
+                    </td>
+
+                    <td>
+                        <strong>
+                            <%= order.status %>
+                        </strong>
+                    </td>
+
+                    <td>
+
+                        <form method="POST"
+                              action="/admin/orders/status/<%= order._id %>">
+
+                            <select name="status">
+
+                                <option value="Placed"
+                                    <%= order.status === "Placed" ? "selected" : "" %>>
+                                    Placed
+                                </option>
+
+                                <option value="Processing"
+                                    <%= order.status === "Processing" ? "selected" : "" %>>
+                                    Processing
+                                </option>
+
+                                <option value="Shipped"
+                                    <%= order.status === "Shipped" ? "selected" : "" %>>
+                                    Shipped
+                                </option>
+
+                                <option value="Delivered"
+                                    <%= order.status === "Delivered" ? "selected" : "" %>>
+                                    Delivered
+                                </option>
+
+                                <option value="Cancelled"
+                                    <%= order.status === "Cancelled" ? "selected" : "" %>>
+                                    Cancelled
+                                </option>
+
+                            </select>
+
+                            <button type="submit">
+                                Update
+                            </button>
+
+                        </form>
+
+                    </td>
+
+                </tr>
+
+            <% }) %>
+
+        </table>
+
+    <% } %>
+
+</body>
+
+</html>
