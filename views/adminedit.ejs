@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <h1>Edit Product</h1>
+
+    <form action="/admin/products/edit/<%= product._id %>" method="POST">
+
+        <label>Title:</label>
+        <input type="text" name="title" value="<%= product.title %>" required>
+
+        <br><br>
+
+        <label>Description:</label>
+        <input type="text" name="description" value="<%= product.description %>">
+
+        <br><br>
+
+        <label>Price:</label>
+        <input type="number" name="price" value="<%= product.price %>" required>
+
+        <br><br>
+
+        <label>Image:</label>
+        <input type="text" name="image" value="<%= product.image %>">
+
+        <br><br>
+
+        <label>Stock:</label>
+        <input type="number" name="stock" value="<%= product.stock %>" required>
+
+        <br><br>
+
+        <button type="submit">Update Product</button>
+
+    </form>
+
+    <br>
+
+    <a href="/admin/products">Back to Products</a>
+
+</body>
+
+</html>
