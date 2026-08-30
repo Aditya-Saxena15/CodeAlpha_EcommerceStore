@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ecommerce Website </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <h3>Add Your Product :</h3>
+    <form method="POST" action="/admin/product/new">
+        <input name="title" placeholder="Enter Your title" type="text" required>
+        <br><br>
+        <textarea name="description" placeholder="Enter Your description"></textarea>
+        <br><br>
+        <input name="price" placeholder="Enter Your price" type="number" required>
+        <br><br>
+        <input name="image" placeholder="Enter Your image" type="text">
+        <br><br>
+        <input name="stock" placeholder="Enter Your stock" type="number">
+        <br><br>
+
+        <button type="submit">Save Your Product</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+
+</html>
